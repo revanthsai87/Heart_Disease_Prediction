@@ -1,0 +1,142 @@
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://img.icons8.com/ios/100/000000/medical-heart.png">
+                        <h3>Welcome</h3>
+                        <p>Please Provide the details to know your heart status..</p>
+                      <a href="{{ url_for('home') }}" class="active">Go Back Home</a>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Please provide Your medical Details</h3>
+<form action="{{ url_for('result') }}" method="post" autocomplete="off">
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="number" name="age" class="form-control" placeholder="Age *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" name="cp">
+                                                <option class="hidden"  selected disabled>Chest Pain Type</option>
+                                                <option value=0>typical angina</option>
+                                                <option value=1>atypical angina</option>
+                                                <option value=2>non-anginal pain</option>
+                                                <option value=3>asymptomatic</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control"  name="trestbps" placeholder="resting_bp *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" name="restecg" placeholder="resting_ecg *" value="" />
+                                        </div>
+<div class="form-group">
+                                            <input type="number" step="0.01" class="form-control" name="oldpeak" placeholder="st_Depression *" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="sex" value=1 checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="sex" value=0>
+                                                    <span>Female </span> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" name="talach" placeholder="max_heart_rate *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number"  name="exang" class="form-control" placeholder="exercise_induced_angina *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" name="slope">
+                                                <option class="hidden"  selected disabled>st_slope</option>
+                                                <option value=0>upsloping</option>
+                                                <option value=1> flat</option>
+                                                <option value=2> downsloping</option>
+                                            </select>
+                                        </div>
+                                           <div class="form-group">
+                                            <select class="form-control" name="thal">
+                                                <option class="hidden"  selected disabled>thallium_scan_results</option>
+                                                <option value=0>normal</option>
+                                                <option value=1>  fixed defect</option>
+                                                <option value=2> reversable defect</option>
+<option value=4> irreversable defect</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" name="ca" placeholder="number_of_vessels *" value="" />
+                                     <div class="msg">{{ msg }}</div>
+                                        </div>
+
+                                        <input type="submit" class="btnRegister"  value="Submit"/>
+                                    </div>
+                                </div>
+                            </div>
+</form>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
